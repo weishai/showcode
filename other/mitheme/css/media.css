@@ -1,0 +1,55 @@
+@media (min-width: 1200px) {
+	#accessories span.bg {height: 437px;}
+	#carousel-generic {margin-bottom: 20px;}
+	#carousel-generic img {height: 416px;}
+	#home-main .big {height: 249px;}
+	#home-main .middle {height: 248px;}
+	#home-main .small {height: 120px;}
+	#home-main .trim {margin-bottom: 8px;}
+	#home-main-1 .thumbnail p {margin-bottom: 8px;}
+	#home-main-center-one .sticky img {height: 375px;}
+	#home-main-bottom-one .thumbnail img {height: 241px;}
+	#u-like { margin-top: 437px;}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	#accessories span.bg {height: 492px;}
+	#carousel-generic img {height: 310px;}
+	#home-main .big {height: 313px;}
+	#home-main .middle {height: 313px;}
+	#home-main .small {height: 151px;}
+	#home-main-center-one .sticky img {height: 469px;}
+	#home-main-bottom-one .thumbnail img {height: 302px;}
+	.discount p {margin-bottom: 14px;}
+	.discount p:last-child {display: none;}
+	#cart_related .lgshow {display: none;}
+	#home-main-4 .thumbnail {height: 348px;}
+	#home-main-center-one .caption {padding-top: 8px;padding-bottom: 7px;}
+	#home-main-center-one h5 {margin-bottom: 0px;margin-top: 0px;}
+}
+@media (max-width: 991px) {
+	#home-main-sm .big {height: 316px;}
+	#home-main-sm .middle {height: 316px;}
+	#home-main-sm .small {height: 153px;}
+	#pro-top #carousel-generic-1 {border-right: 0; border-bottom: 1px solid #ededed;}
+	#cart_related .mdshow {display: none;}
+	#cart_related .lgshow {display: none;}
+	#foot-bottom {border-top:1px solid #ddd; padding-top: 20px;}
+	#sign-in .input {width: 80%;}
+}
+@media (max-width: 768px) {
+	#cart_list .col-lg-4,#cart_list .col-sm-12 {text-align: center;}
+	#pro-cart h2,#pro-checkout h2 {padding-top: 0;}
+	#pro-cart h2 a {top:0;}
+	#pro-cart h2 span {display: none;}
+	#cart_list .img {width: 150px;}
+	.pro_num {width: 90%;}
+	#cart_checkout .btn-default {display: none;}
+	#cart_checkout {float: none!important; margin: 0 auto; width: 100px;}
+	#acc-main .panel-heading {text-align: center;}
+	#cart_total,#checkout_total,#acc-main .panel-footer .pull-left,#acc-main .panel-footer .pull-right {float: none!important;text-align: center;}
+	#acc-side {text-align: center;}
+	#sign-in .input {width: 60%;}
+}
+@media (max-width: 480px) {
+	#sign-in .input {width: 100%;}
+}
