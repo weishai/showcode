@@ -4,31 +4,35 @@ $(document).ready(function(){
 	$(".dropdown a:first").addClass("dropdown-toggle");
 	$(".dropdown a:first").attr("data-toggle","dropdown");
 	$("ul.col-lg-10 ul").addClass("dropdown-menu");
-	$("#search .form-group a.sub").hover(function(){    	
-		$('.iconsearbg').css('display', 'block');  
-		$('.iconsear').css('display', 'none');  
-	}, function(){    
-		$('.iconsearbg').css('display', 'none');  
-		$('.iconsear').css('display', 'block');   
+	$("#search .form-group a.sub").hover(function(){
+		$('.iconsearbg').css('display', 'block');
+		$('.iconsear').css('display', 'none');
+	}, function(){
+		$('.iconsearbg').css('display', 'none');
+		$('.iconsear').css('display', 'block');
 	});
-	$("#accessories li").hover(function(){    	
-		$(this).addClass('hover'); 
-	}, function(){    
-		$(this).removeClass('hover'); 
+	$("#accessories li").hover(function(){
+		$(this).addClass('hover');
+	}, function(){
+		$(this).removeClass('hover');
 	});
-	$("#accessories-title").hover(function(){    	
-		$('.all-side',this).css('display','block'); 
-	}, function(){    
-		$('.all-side',this).css('display','none'); 
+	$("#accessories-title").hover(function(){
+		$('.all-side',this).css('display','block');
+	}, function(){
+		$('.all-side',this).css('display','none');
 	});
-	$("#pro-color li").click(function(){    	
-		var color = $(this).attr('color-data'); 
-		$("#pro-color li").removeClass('active'); 
-		$(this).addClass('active'); 
-		$("#pro_form_color").val(color);
+	// $("#pro-color li").click(function(){
+	// 	var color = $(this).attr('color-data');
+	// 	$("#pro-color li").removeClass('active');
+	// 	$(this).addClass('active');
+	// 	$("#pro_form_color").val(color);
+	// });
+	$('#pro-info .list-inline').on('click', 'li', function(event) {
+		$(this).addClass('active').siblings().removeClass('active')
+		event.preventDefault();
 	});
 	var cc1h = $("#carousel-generic-s").height();
-	$('.carousel-control-1').css('height', cc1h);  
+	$('.carousel-control-1').css('height', cc1h);
 	//Carousel
 	$('.carousel').carousel({
 		interval: 3000
@@ -79,22 +83,22 @@ $(".pro-con-nav li a").click(function() {
         });
         return false;
     });
-    
+
 //评分计数
 $(".rating a").hover(function(){
 	var rating = $(this).attr('rating-data');
 		if(rating==1) {
 			$(this).parent().css('background-position','1px -120px');
-		} 
+		}
 		if(rating==2) {
 			$(this).parent().css('background-position','1px -90px');
-		} 
+		}
 		if(rating==3) {
 			$(this).parent().css('background-position','1px -60px');
-		} 
+		}
 		if(rating==4) {
 			$(this).parent().css('background-position','1px -30px');
-		} 
+		}
 		if(rating==5) {
 			$(this).parent().css('background-position','1px 0px');
 		}

@@ -487,6 +487,7 @@
       </ul>
     </div>
   </nav>
+  <?php while ( have_posts() ) : the_post(); ?>
   <div class="container" data-spy="scroll" data-target="#navbar-spy" data-offset="0" id="single">
     <div class="row">
       <div class="col-sm-12">
@@ -495,29 +496,39 @@
             <a href="http://mao10.info/mi3">首页</a>
           </li>
           <li>
-            <a href="http://mao10.info/mi3/category/all" title="查看全部产品中的全部文章" rel="category tag">全部产品</a>
-            ,
-            <a href="http://mao10.info/mi3/category/all/xm1" title="查看小米手机1中的全部文章" rel="category tag">小米手机1</a>
-            ,
-            <a href="http://mao10.info/mi3/category/all/peijian" title="查看配件中的全部文章" rel="category tag">配件</a>
+          <?php
+            $categories = get_the_category();
+            $separator = ', ';
+            $output = '';
+            if($categories){
+              foreach($categories as $category) {
+                $output .= '<a href="'.get_category_link( $category->term_id ).'" title="' .$category->name. '">'.$category->cat_name.'</a>'.$separator;
+              }
+            echo trim($output, $separator);
+            }
+          ?>
           </li>
-          <li class="active">fotopro手机自拍架</li>
+          <li class="active"><?php the_title(); ?></li>
         </ol>
         <div id="pro-top" class="pr">
           <div class="row">
             <div class="col-md-8 col-lg-6">
               <div id="carousel-generic-s" class="carousel slide">
                 <ol class="carousel-indicators">
-                  <li data-target="#carousel-generic-s" data-slide-to="0" class="">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/item1.jpg"></li>
-                  <li data-target="#carousel-generic-s" data-slide-to="1" class="">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/item2.jpg"></li>
+                  <?php
+                    $thePostBanners = preg_replace("/\s+/", ",", get_post_custom_values('banner')[0]);
+                    $thePostBanners = explode(",", $thePostBanners);
+                    foreach ($thePostBanners as $key => $value) {
+                      echo '<li data-target="#carousel-generic-s" data-slide-to="'. $key .'" class=""><img src="'. $value .'"></li>';
+                    }
+                  ?>
                 </ol>
                 <div class="carousel-inner">
-                  <div class="item">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/item1.jpg"></div>
-                  <div class="item active">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/item2.jpg"></div>
+                  <?php
+                    foreach ($thePostBanners as $key => $value) {
+                      echo '<div class="item '. ($key == 0 ? 'active':'') .'"><img src="'. $value .'"></div>';
+                    }
+                  ?>
                 </div>
                 <a class="icon-slides-prev carousel-control-1" href="#carousel-generic-s" data-slide="prev" style="height: 510px;">
                   <span class="glyphicon glyphicon-chevron-left"></span>
@@ -529,12 +540,12 @@
             </div>
             <div class="col-md-4 col-lg-6">
               <div id="pro-info">
-                <h2>fotopro手机自拍架</h2>
-                <p>可全方位360度转动</p>
+                <h2><?php the_title(); ?></h2>
+                <p><?php the_excerpt(); ?></p>
                 <p class="line"></p>
                 <p>
                   价格：
-                  <span id="cast"> <em>58</em>
+                  <span id="cast"> <em><?php echo get_post_custom_values('价格')[0]; ?></em>
                     元
                   </span>
                 </p>
@@ -552,10 +563,26 @@
                   </span>
                 </div>
                 <p class="line"></p>
+                <?php if($thePostColors = get_post_custom_values('颜色')){ ?>
                 <p>可选颜色：</p>
                 <ul class="list-inline" id="pro-color">
-                  <li class="active" color-data="黑">黑</li>
+                  <?php
+                  $thePostColors = explode(' ', $thePostColors[0]);
+                  foreach ($thePostColors as $key => $value) {
+                    echo '<li class="'.($key == 0?'active':'').'" color-data="'. $value .'">'. $value .'</li>';
+                  } ?>
                 </ul>
+                <?php } ?>
+                <?php if($thePostSets = get_post_custom_values('款色')){ ?>
+                <p>款色：</p>
+                <ul class="list-inline" id="pro-color">
+                  <?php
+                  $thePostSets = explode(' ', $thePostSets[0]);
+                  foreach ($thePostSets as $key => $value) {
+                    echo '<li class="'.($key == 0?'active':'').'" color-data="'. $value .'">'. $value .'</li>';
+                  } ?>
+                </ul>
+                <?php } ?>
                 <p class="line"></p>
                 <p class="add-cart">
                   <a href="http://mao10.info/mi3/sign-in" class="btn btn-warning" role="button">
@@ -681,28 +708,7 @@
             </ul>
           </div>
           <div class="panel-body">
-            <p>
-              <img src="<?php echo get_template_directory_uri(); ?>/images/mitheme_picwrap.png"></p>
-            <p>
-              <img src="<?php echo get_template_directory_uri(); ?>/images/mitheme_picwrap.png"></p>
-            <p>
-              <img src="<?php echo get_template_directory_uri(); ?>/images/mitheme_picwrap.png"></p>
-            <p>
-              <img src="<?php echo get_template_directory_uri(); ?>/images/mitheme_picwrap.png"></p>
-            <p>
-              <img src="<?php echo get_template_directory_uri(); ?>/images/mitheme_picwrap.png"></p>
-            <p>
-              <img src="<?php echo get_template_directory_uri(); ?>/images/mitheme_picwrap.png"></p>
-            <p>
-              <img src="<?php echo get_template_directory_uri(); ?>/images/mitheme_picwrap.png"></p>
-            <p>
-              <img src="<?php echo get_template_directory_uri(); ?>/images/mitheme_picwrap.png"></p>
-            <p>
-              <img src="<?php echo get_template_directory_uri(); ?>/images/mitheme_picwrap.png"></p>
-            <p>
-              <img src="<?php echo get_template_directory_uri(); ?>/images/mitheme_picwrap.png"></p>
-            <p>
-              <img src="<?php echo get_template_directory_uri(); ?>/images/mitheme_picwrap.png"></p>
+            <?php the_content(); ?>
           </div>
         </div>
         <div id="pro-type" class="panel panel-default pr">
@@ -845,6 +851,7 @@
       </div>
     </div>
   </div>
+  <?php endwhile; // end of the loop. ?>
   <div class="container">
     <footer>
       <div class="panel panel-default visible-md visible-lg">

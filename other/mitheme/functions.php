@@ -26,4 +26,7 @@ function create_post_type() {
             'rewrite' => true
         )
     );
+
+//激活文章缩略图
+add_theme_support( 'post-thumbnails' );
 }
